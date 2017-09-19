@@ -188,44 +188,33 @@ $wgNamespacesWithSubpages = array(
         NS_KB   => true,
 );
 
-#Enable MultiMediaViewer
+// Enable MultiMediaViewer for everyone
 $wgDefaultUserOptions['multimediaviewer-enable'] = 1;
 
-#extensions
-#Syntax Highlighting (code snippets)
+// Load extensions
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 $wgPygmentizePath = "$IP/extensions/SyntaxHighlight_GeSHi/pygments/pygmentize";
-#Wiki Editor (Enhanced Wiki Editor)
 wfLoadExtension( 'WikiEditor' );
-#Citations
 wfLoadExtension( 'Cite' );
-#Parser Functions
-wfLoadExtension ( 'ParserFunctions' );
-#Scribunto
-require_once "$IP/extensions/Scribunto/Scribunto.php";
-#$wgScribuntoDefaultEngine = 'laustandalone';
-#Kartographer - Display of maps within the Wiki
-wfLoadExtension( 'Kartographer' );
-#MultiBoilerPlate - Extension for preloading of Templates
-wfLoadExtension( 'MultiBoilerplate' );
-#Enable BetaFeatures for MultiMediaViewer
-wfLoadExtension( 'BetaFeatures' );
-require_once "$IP/extensions/MultimediaViewer/MultimediaViewer.php";
-#Dynamic Page List
-require_once "$IP/extensions/DynamicPageList/DynamicPageList.php";
-#Variables extension - Reusable values throughout a single page
-require_once "$IP/extensions/Variables/Variables.php";
 wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension ( 'VisualEditor' );
 wfLoadExtension( 'TemplateData' );
+wfLoadExtension ( 'ParserFunctions' );
+require_once "$IP/extensions/Scribunto/Scribunto.php";
+wfLoadExtension( 'Kartographer' );
+wfLoadExtension( 'MultiBoilerplate' );
+wfLoadExtension( 'BetaFeatures' );
+require_once "$IP/extensions/MultimediaViewer/MultimediaViewer.php";
+require_once "$IP/extensions/DynamicPageList/DynamicPageList.php";
+require_once "$IP/extensions/Variables/Variables.php";
 
+
+// VisualEditor configuration //
 // Enable by default for everybody
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
-
 // Optional: Set VisualEditor as the default for anonymous users
 // otherwise they will have to switch to VE
 // $wgDefaultUserOptions['visualeditor-editor'] = "visualeditor";
-
 // Don't allow users to disable it
 $wgHiddenPrefs[] = 'visualeditor-enable';
 
@@ -256,7 +245,7 @@ $wgSessionsInObjectCache = true;
 // that $wgVirtualRestConfig['modules']['parsoid']['url'] be pointed to localhost if this setting is enabled.
 $wgVirtualRestConfig['modules']['parsoid']['forwardCookies'] = true;
 
-// E-mail configuration
+// E-mail configuration (for outgoing/ingoing mail)
 $wgSMTP = array(
  'host'     => "REPLACE",
  'IDHost'   => "REPLACE",
